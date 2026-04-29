@@ -1,0 +1,23 @@
+{
+  "name": "Aakash Test Extraction Bot",
+  "description": "Telegram bot to extract and format test questions from Aakash iTutor platform.",
+  "keywords": ["telegram", "bot", "python"],
+  "stack": "heroku-22",
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  },
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Your Telegram Bot Token from @BotFather",
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
