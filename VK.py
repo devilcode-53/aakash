@@ -1789,10 +1789,10 @@ def generate_solutions_html(data, test_title):
     
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Starts the conversation with main menu."""
-    if update.effective_user.id not in AUTHORIZED_USER_IDS:
-        await update.message.reply_text(f"🚫 *Access Denied*\n\n❌ You are not authorized to use this bot\.\n\n🆔 *Your User ID:* {update.effective_user.id}", parse_mode='MarkdownV2')
-        logger.warning(f"Unauthorized access attempt by user ID: {update.effective_user.id}")
-        return ConversationHandler.END
+    # if update.effective_user.id not in AUTHORIZED_USER_IDS:
+    #     await update.message.reply_text(f"🚫 *Access Denied*\n\n❌ You are not authorized to use this bot\.\n\n🆔 *Your User ID:* {update.effective_user.id}", parse_mode='MarkdownV2')
+    #     logger.warning(f"Unauthorized access attempt by user ID: {update.effective_user.id}")
+    #     return ConversationHandler.END
 
     if not check_internet_connection():
         await update.message.reply_text("🌐 *Network connectivity issue detected\.* Please check your internet connection and try again\. 🔄", parse_mode='MarkdownV2')
@@ -1892,9 +1892,9 @@ async def handle_back_to_menu(update: Update, context: ContextTypes.DEFAULT_TYPE
 
 async def extract_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Handle /extract command"""
-    if update.effective_user.id not in AUTHORIZED_USER_IDS:
-        await update.message.reply_text("🚫 *Access Denied*\n\n❌ You are not authorized to use this bot\\.", parse_mode='MarkdownV2')
-        return ConversationHandler.END
+    # if update.effective_user.id not in AUTHORIZED_USER_IDS:
+    #     await update.message.reply_text("🚫 *Access Denied*\n\n❌ You are not authorized to use this bot\\.", parse_mode='MarkdownV2')
+    #     return ConversationHandler.END
 
     await update.message.reply_text("📚 *Extract Test*\n\n🔢 Please send the *NID* \\(Numerical ID\\) for the test you want to extract:", parse_mode='MarkdownV2')
     return ASK_NID
@@ -2101,9 +2101,9 @@ def clean_text_for_telegram_enhanced(text):
 # Updated info command handler
 async def info_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Handle /info command with NID parameter - Fixed formatting version"""
-    if update.effective_user.id not in AUTHORIZED_USER_IDS:
-        await update.message.reply_text("🚫 Access Denied\n\n❌ You are not authorized to use this bot.")
-        return
+    # if update.effective_user.id not in AUTHORIZED_USER_IDS:
+    #     await update.message.reply_text("🚫 Access Denied\n\n❌ You are not authorized to use this bot.")
+    #     return
 
     try:
         if not context.args:
@@ -2415,9 +2415,9 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Shows help information."""
-    if update.effective_user.id not in AUTHORIZED_USER_IDS:
-        await update.message.reply_text("🚫 Access Denied. You are not authorized to use this bot.")
-        return
+    # if update.effective_user.id not in AUTHORIZED_USER_IDS:
+    #     await update.message.reply_text("🚫 Access Denied. You are not authorized to use this bot.")
+    #     return
 
     help_text = (
         "❓ Test Extraction and Info Bot - Help Guide\n\n"
@@ -2455,14 +2455,14 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 
 async def handle_unauthorized(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Handles messages from unauthorized users."""
-    if update.effective_user.id not in AUTHORIZED_USER_IDS:
-        await update.message.reply_text(
-            f"🚫 Access Denied\n\n"
-            f"❌ This bot is restricted to authorized users only.\n"
-            f"👤 Contact the administrator for access.\n\n"
-            f"🆔 Your User ID: {update.effective_user.id}"
-        )
-        logger.warning(f"Unauthorized access attempt by user ID: {update.effective_user.id}")
+    # if update.effective_user.id not in AUTHORIZED_USER_IDS:
+    #     await update.message.reply_text(
+    #         f"🚫 Access Denied\n\n"
+    #         f"❌ This bot is restricted to authorized users only.\n"
+    #         f"👤 Contact the administrator for access.\n\n"
+    #         f"🆔 Your User ID: {update.effective_user.id}"
+    #     )
+    #     logger.warning(f"Unauthorized access attempt by user ID: {update.effective_user.id}")
 
 async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Handles errors that occur during bot operation."""
