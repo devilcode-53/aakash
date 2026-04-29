@@ -1,1 +1,1 @@
-worker: python info.py
+worker: python VK.py
