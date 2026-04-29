@@ -33,7 +33,7 @@ logger = logging.getLogger(__name__)
 ASK_NID, ASK_PDF_NAME, CHOOSE_FORMAT, ASK_INFO_NID = range(4)
 
 # IMPORTANT: Replace with your actual bot token and authorized user IDs
-BOT_TOKEN = "8225923765:AAE9Xcox-SCnx72C8Rud5Ubg1WLRsgktjfE"
+BOT_TOKEN = "8728917059:AAG4sZHiT4FIfsJW7VLGEGXA8hSJpszyDqs"
 # AUTHORIZED_USER_IDS = [7927314662]
 
 def check_internet_connection():
